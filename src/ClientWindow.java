@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.text.DefaultCaret;
 
 public class ClientWindow {
 
@@ -53,6 +54,9 @@ public class ClientWindow {
 		chat.setEditable(false);
 		chat.setLineWrap(true);
 		chat.setWrapStyleWord(true);
+
+		DefaultCaret caret = (DefaultCaret) chat.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
 		JScrollPane scroll = new JScrollPane(chat, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
